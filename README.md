@@ -1,6 +1,6 @@
-# .NET Workshop
+# .NET Labs
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/dotnet/interactive/main?urlpath=lab)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonytins/dotnetlabs/HEAD?urlpath=lab) [![GitHub license](https://img.shields.io/github/license/tonytins/dotnetworkshop)](https://github.com/tonytins/dotnetworkshop/blob/master/LICENSE)
 
 .NET Workshop is a programming playground using [Jupyter Notebooks](https://jupyter.org/) with .NET Interactive for VS Code (Insiders). It also serves as an incubator for potentially future projects, or proving ground for adding features to existing projects.
 
