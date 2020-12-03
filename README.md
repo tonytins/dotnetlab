@@ -11,7 +11,7 @@
     - [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) (does not require Jupyter)
     - [nteract](https://nteract.io/) (requires Jupyter)
 
-## [CST.NET](./cst.ipynb)
+## [CST.NET](./notebooks/cst.ipynb)
 
 An implementation of Caret-Separated Text (CST) in C# with no external dependencies. For more information on the CST format, check the notebook.
 
