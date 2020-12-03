@@ -4,16 +4,18 @@
 
 .NET Labs is a programming playground using [Jupyter Notebooks](https://jupyter.org/) with .NET Interactive for VS Code (Insiders). It also serves as an incubator for potentially future projects, or proving ground for adding features to existing projects.
 
+## Projects
+
+### [CST.NET](./notebooks/cst.ipynb)
+
+A parser implementation for Caret-Separated Text (CST) in C# with no external dependencies. For more information on the CST format, check the notebook.
+
 ## Prerequisites
 
 - [.NET](https://dotnet.microsoft.com/download) 5+ or Core 3.1
 - [.NET Interactive](https://github.com/dotnet/interactive/blob/main/README.md)
     - [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) (does not require Jupyter)
     - [nteract](https://nteract.io/) (requires Jupyter)
-
-## [CST.NET](./notebooks/cst.ipynb)
-
-An implementation of Caret-Separated Text (CST) in C# with no external dependencies. For more information on the CST format, check the notebook.
 
 ## License
 
