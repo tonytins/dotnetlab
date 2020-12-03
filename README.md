@@ -2,13 +2,11 @@
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonytins/dotnetlabs/HEAD?urlpath=lab) [![GitHub license](https://img.shields.io/github/license/tonytins/dotnetworkshop)](https://github.com/tonytins/dotnetworkshop/blob/master/LICENSE)
 
-.NET Workshop is a programming playground using [Jupyter Notebooks](https://jupyter.org/) with .NET Interactive for VS Code (Insiders). It also serves as an incubator for potentially future projects, or proving ground for adding features to existing projects.
-
-However, it's not related to [ML.NET Workshop](https://github.com/tonytins/mlworkshop).
+.NET Labs is a programming playground using [Jupyter Notebooks](https://jupyter.org/) with .NET Interactive for VS Code (Insiders). It also serves as an incubator for potentially future projects, or proving ground for adding features to existing projects.
 
 ## Prerequisites
 
-- .NET Core 3.1
+- [.NET](https://dotnet.microsoft.com/download) 5+ or Core 3.1
 - [.NET Interactive](https://github.com/dotnet/interactive/blob/main/README.md)
     - [VSCode Extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.dotnet-interactive-vscode) (does not require Jupyter)
     - [nteract](https://nteract.io/) (requires Jupyter)
