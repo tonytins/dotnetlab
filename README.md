@@ -1,6 +1,6 @@
 # .NET Labs
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonytins/dotnetlabs/HEAD?urlpath=lab) [![License: CC0-1.0](https://licensebuttons.net/l/zero/1.0/80x15.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/tonytins/dotnetlabs/HEAD?urlpath=lab) [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 
 .NET Labs is a programming playground using [Jupyter Notebooks](https://jupyter.org/) with .NET Interactive. It also serves as an incubator for potentially future projects, or proving ground for adding features to existing projects.
 
