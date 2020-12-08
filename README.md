@@ -8,9 +8,10 @@
 
 ### [CST.NET](./notebooks/cst.ipynb)
 
-A parser for Caret-Separated Text (CST) in C# written in C# with no external dependencies. For more information on the CST format, check the notebook.
+The experimental version of my Caret-Separated Text (CST) parser. For more information on the CST format, check the notebook.
 
-## Prerequisites
+## Requirements
+### Prerequisites
 
 - [.NET](https://dotnet.microsoft.com/download) 5+ or Core 3.1
 - [.NET Interactive](https://github.com/dotnet/interactive/blob/main/README.md)
