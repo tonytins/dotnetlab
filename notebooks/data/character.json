@@ -70,7 +70,7 @@
         "Hacker",
         "Groundskeeper"
     ],
-    "Traits": [
+    "Trait": [
         "Insider",
         "Creative Visionary",
         "Living Statue",
@@ -81,6 +81,7 @@
         "Mentor",
         "Independent",
         "Storm Chaser",
+        "Stock Inventor",
         "Collector",
         "Night Owl",
         "K.O. Punch",
@@ -92,5 +93,17 @@
         "Snob",
         "Physically Fit",
         "Cultured"
+    ],
+    "Faction": [
+        "Concord Surveillance",
+        "Paramount Bond",
+        "Ivory Accord",
+        "Industry Union",
+        "Unified Nations",
+        "Paladin League",
+        "Galactic Security Alliance",
+        "Onyx Alliance",
+        "Peacekeeping Federation",
+        "Grand Union"
     ]
 }
