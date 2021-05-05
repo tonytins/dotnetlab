@@ -1,0 +1,14 @@
+#!csharp
+
+public static int GetHoloceneYear(this DateTime dt) => dt.Year + 10000;
+public static int GetHoloceneYear(this DateTimeOffset dt) => dt.Year + 10000;
+
+#!csharp
+
+var holocene = DateTime.Now.GetHoloceneYear();
+Console.Write(holocene)
+
+#!csharp
+
+var holoceneOffset = DateTimeOffset.Now.GetHoloceneYear();
+Console.Write(holoceneOffset)

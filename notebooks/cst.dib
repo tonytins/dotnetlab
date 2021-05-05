@@ -1,0 +1,97 @@
+#!csharp
+
+# Caret-Separated Text
+
+Caret-Separated Text (or CST) is a key-value pair format represented by numbers or words as keys and the value is the string enclosed between carets (^) that contains the translation. Any text which is not enclosed with carets is considered a comment and ignored.
+
+## CST.NET
+
+My parser, CST.NET, uses .NET's built-in indexing extension function to accomplish locating of each respective key. Originally, CST keys were only numbered-based but the indexing naturally elimates this restriction. There is no consequence for using something other numbers now. An additional normalizion process of line endings from the document's to the system's, if needed, happens before it reads the file. This was done in order to prevent avoid crashes.
+
+#!csharp
+
+using System.IO;
+using System.Collections.Generic;
+
+#!csharp
+
+public static class CST
+{
+    public static string GetValue(string cst, int key, params string[] args)
+    {
+        var entries = NormalizeEntries(cst);
+        return ReadEntries(entries, $"{key}", args);
+    }
+
+    public static string GetValue(string cst, string key, params string[] args)
+    {
+        var entries = NormalizeEntries(cst);
+        return ReadEntries(entries, key, args);
+    }
+
+    static IEnumerable<string> NormalizeEntries(string cst)
+    {
+        var lineBreaks = new string[] { "^\u000A", "^\u000D", "^\u000A" };
+
+        foreach (var line in lineBreaks)
+        {
+            var eol = Environment.NewLine; // System's line break
+
+            // If the new line matches the system's, do nothing
+            if (line.Contains(eol))
+                continue;
+
+            cst.Replace(line, eol);
+        }
+
+        return cst.Split(lineBreaks, StringSplitOptions.RemoveEmptyEntries);
+
+    }
+
+    // TODO: support argument parameters
+    static string ReadEntries(IEnumerable<string> entries, string key, params string[] args)
+    {
+        var translation = "[ENTRY NOT FOUND]";
+
+        // Search through array
+        foreach (var entry in entries)
+        {
+            // Locate index, trim carets and return translation
+            if (!entry.StartsWith(key))
+                continue;
+                
+            const char caret = '^';
+            // const char token = '%';
+
+            var startIndex = entry.IndexOf(caret.ToString(),
+                StringComparison.OrdinalIgnoreCase);
+
+            var line = entry.Substring(startIndex);
+
+            /*foreach (var arg in args)
+                Regex.Replace(line, $"%[1-100]", arg);*/
+
+            translation = line.Trim(caret);
+        }
+
+        return translation;
+    }
+}
+
+#!csharp
+
+var v1Path = Path.Combine(Environment.CurrentDirectory, "data", "v1.cst");
+var v1File = File.ReadAllText(v1Path);
+var multiLine = CST.GetValue(v1File, 1);
+var singleLine = CST.GetValue(v1File, 2);
+Console.WriteLine(singleLine);
+Console.WriteLine(singleLine);
+
+#!csharp
+
+var v2Path = Path.Combine(Environment.CurrentDirectory, "data", "v2.cst");
+var v2File = File.ReadAllText(v2Path);
+var multiLineV2 = CST.GetValue(v2File, "Multiline");
+var singleLineV2 = CST.GetValue(v2File, "Singleline");
+Console.WriteLine(singleLineV2);
+Console.WriteLine(multiLineV2);

@@ -1,0 +1,138 @@
+#!csharp
+
+# Character Generator
+
+This is a basic character generator based off of names, occupations, ects... from Watch Dogs: Legion. This generator makes a profile based on traits, skills, role, faction. Because this is all random with no sense of what could count as a potential conflict, take these results as a suggustion.
+
+#!csharp
+
+using System.IO;
+using System.Text.Json;
+
+#!csharp
+
+class Character
+{
+    public string[] First { get; set; }
+    public string[] Last { get; set; }
+    public string[] Role { get; set; }
+    public string[] Trait { get; set; }
+    public string[] Faction { get; set; }
+}
+
+#!csharp
+
+static class CharacterGenerator
+{
+    static Character GetCharacter
+    {
+        get
+        {
+            var path = Path.Combine(Environment.CurrentDirectory, "data", "character.json");
+            var file = File.ReadAllText(path);
+            var options = new JsonSerializerOptions()
+            {
+                PropertyNameCaseInsensitive = false,
+            };
+            return JsonSerializer.Deserialize<Character>(file, options);
+        }
+    }
+
+    public static string Trait
+    {
+        get
+        {
+            var rng = new Random();
+            return GetCharacter.Trait[rng.Next(GetCharacter.Trait.Length)];
+        }
+    }
+
+    public static string Faction
+    {
+        get
+        {
+            var rng = new Random();
+            return GetCharacter.Faction[rng.Next(GetCharacter.Faction.Length)];
+        }
+    }
+
+    public static string FirstName
+    {
+        get
+        {
+            var rng = new Random();
+            return GetCharacter.First[rng.Next(GetCharacter.First.Length)];
+        }
+    }
+
+    public static string Role
+    {
+        get
+        {
+            var rng = new Random();
+            return GetCharacter.Role[rng.Next(GetCharacter.Role.Length)];
+        }
+    }
+
+    public static string LastName
+    {
+        get
+        {
+            var rng = new Random();
+            return GetCharacter.Last[rng.Next(GetCharacter.Last.Length)];
+        }
+    }
+
+    static string Skills
+    {
+        get
+        {
+            var rng = new Random();
+            var min = 1;
+            var max = 10;
+            return $"Body {rng.Next(min, max)}, Charisma {rng.Next(min, max)}";
+        }
+    }
+
+    public static string Generate()
+    {
+        var rng = new Random();
+        var first = FirstName;
+        var last = LastName;
+        var role = Role;
+        var faction = Faction;
+        var trait1 = Trait;
+        var trait2 = Trait;
+        var trait3 = Trait;
+
+        // Ensure there are no duplicates
+        {
+            if (trait1 == trait2 && trait1 == trait3)
+            trait1 = Trait;
+
+            if (trait2 == trait3 && trait2 == trait1)
+                trait2 = Trait;
+            var indie = "Independent";
+
+            if (trait1.Contains(indie) 
+            || trait2.Contains(indie)
+            || trait3.Contains(indie))
+                faction = "None";
+
+            if (first == last)
+                first = FirstName;
+        }
+
+        return $"Name: {first} {last}" 
+        + $"{Environment.NewLine}Role: {role}"
+        + $"{Environment.NewLine}Faction: {faction}"
+        + $"{Environment.NewLine}Traits: {trait1}, {trait2}, {trait3}"
+        + $"{Environment.NewLine}Skills: {Skills}";
+    }
+}
+
+#!csharp
+
+Console.Write(CharacterGenerator.Generate());
+Console.Write(CharacterGenerator.Generate());
+Console.Write(CharacterGenerator.Generate());
